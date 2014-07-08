@@ -1,0 +1,784 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fnil\fcharset0 Charter-Roman;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Monaco;\f4\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red35\green107\blue170;\red24\green55\blue106;\red46\green46\blue49;
+\red190\green7\blue68;\red245\green245\blue247;\red251\green0\blue7;\red66\green66\blue66;\red172\green173\blue177;
+\red185\green0\blue4;\red36\green43\blue51;\red38\green38\blue38;\red250\green249\blue246;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid1\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid101\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww15440\viewh15280\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs28 \cf0 Stuff I did:\
+\
+4/15\
+Added a class to dynamically introduced images-\
+	For hotels page landing pages destination_card.haml added a second class like this:\
+	:class => ['destination--' + destination.downcase, status]\
+	\'91status\'92 is a property added to \'91destinations\'92 objects in the hotels.yml file\
+	Some image were \'91keep\'92 and some were \'91remove\'92\
+	Then I was able to style those with the \'91remove\'92 class as display: none when certain screen \
+	sizes occur\
+Installed virtual box and IE 8-11 environments\
+\
+Got up and running with staging server (Jenkins):\
+	Go here to build landing pages\
+	Click on Build with parameters\
+	fill in form with branch name\
+	go to landing_pages.lpstaging.com/blahblah to view\
+	{\field{\*\fldinst{HYPERLINK "http://build.lonelyplanet.com/view/Landing-Pages-Staging/job/Landing-Pages-Staging-Test/"}}{\fldrslt \cf2 http://build.lonelyplanet.com/view/Landing-Pages-Staging/job/Landing-Pages-Staging-Test/}}\cf2 \
+\
+\cf0 Tips: 	\
+run bundle update rizzo daily\
+command p to search sublime project files\
+\
+Questions: \
+What is \'91bump rizzo\'92?\
+		\
+4/16\
+rbenv local 1.9.3-p484\
+\
+Worked all day on the flights landing page with little result. Turns out there was confusion about how we are implementing the sky scanner service and whether we were including their widget on our page or building our own widget that sends form data to their white label page they built for us. \
+\
+Studied RequireJS and building modules.\
+\
+4/17\
+To log into the LP zendesk account: LPWORLD\\<username> \
+What is my LP username? joes\
+\
+Dev server address? http://10.10.4.71:8080\
+\
+4/21 \
+Wrote date format converter for flights landing page widget to send proper style to sky scanner search.\
+\
+ var formatDate = function(date)\{\
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\
+    var day = date.slice(0,2);\
+    if(day.length != 2)\{\
+      day = "0" + day;\
+    \}\
+    var month = months.indexOf(date.slice(3,6)) + 1;\
+    if(month.length != 2)\{\
+      month = "0" + month;\
+    \}\
+    var year = date.slice(7,11);\
+    var formattedDate = year + '-' + month + '-' + day;\
+    return formattedDate;\
+  \};\
+\
+Made flights page and its widget responsive\
+Wrote JS code to validate flights widget form info before submitting to sky scanner \
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalc \clshdrawnil \clwWidth300\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx4320
+\clmrg \clvertalc \clshdrawnil \clwWidth300\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720
+\cf0 \cell 
+\pard\intbl\itap1\cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 4/22\
+Found cool way to geolocate by ip address using this api call:\
+$.getJSON('http://freegeoip.net/json/?callback=?', function(data)\{\
+      console.log("Country code for this IP address: " + data.country_code);\
+    \});\
+\
+Alas, didn\'92t need it, because we have the location in the response header of the LP site\
+\
+To update rizzo in development\
+	remove version sha from gem file lock\
+	run bundle install\
+\
+\
+    %h4.copy--h4  Where would you like to fly?\
+    %form\
+      .flight--countries\
+        %fieldset\
+        %legend From\
+        %input.input--regular--dark.input--text\{label: "From", id: "js-from-country", name: "js-from-country"\}\
+        %legend To\
+        %input.input--regular--dark.input--text\{label: "To", id: "js-to-country", name: "js-to-country"\}\
+\
+      .flight--dates\
+        %fieldset\
+        .date-group.input--regular--dark.input--grouped--top#dep-date\
+          #depart-date.date-group__container.input__container.js-input.icon--calendar--after\
+            %input.js-av-start.input--text.input--datepicker.js-datepicker\{autocomplete: "on", name: "search[from]", placeholder: "Departure Date", type: "date"\}\
+        .date-group.input--regular--dark.input--grouped--top\
+          #return-date.date-group__container.input__container.js-input.icon--calendar--after\
+            %input.js-av-start.input--text.input--datepicker.js-datepicker\{autocomplete: "on", name: "search[from]", placeholder: "Return Date", type: "date"\}\
+\
+4/23\
+bower update autocomplete to install autocomplete in rizzo\
+\
+Didn\'92t end up needing this, but might come in handy someday if we need to autocomplete a form using API JSON data:\
+\
+var skyscannerCountries;\
+  $.getJSON( "http://partners.api.skyscanner.net/apiservices/reference/v1.0/locales?apikey=LP572781209634980641428478640238",\
+    function(data)\{\
+      skyscannerCountries = data.Countries;\
+    \});\
+\
+\
+  var fetchCountries = function(searchTerm, callback) \{\
+    var results = [],\
+        searchString = searchTerm.toLowerCase();\
+    for(var i = 0; i < skyscannerCountries.length; i++) \{\
+      if(skyscannerCountries[i].Name.toLowerCase().indexOf(searchString) != -1) \{\
+      results.push(mydata[i]);\
+      \}\
+    \}\
+    callback(results);\
+  \};\
+\
+4/24\
+joes\
+ramonesCapS\
+\
+for timeshets: select marketing OPX as my area\
+\
+\pard\pardeftab720
+\cf3 Your long key is LP572781209634980641428478640238 and your short key is LP572781.\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\pard\pardeftab720
+\cf4 aka aliases:\
+!:tv: => youtube\
+!help => help\
+!img => image me\
+!gif => animate me\
+!yt => youtube\
+screenshot => cap\
+!time => time in\
+\pard\pardeftab720
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 Slothbot help:\
+\pard\pardeftab720
+\cf4 Events:\
+debug - \{user: <user object to send message to>\}\
+slothbot <user> doesn't have <role> role - Removes a role from a user\
+slothbot <user> has <role> role - Assigns a role to a user\
+slothbot <user> is a badass guitarist - assign a role to a user\
+slothbot <user> is not a badass guitarist - remove a role from a user\
+slothbot aka add <alias> <command> - sets an alias for the command\
+slothbot aka list - show all aliases\
+slothbot aka remove <alias> - removes the alias\
+slothbot animate me <query> - The same thing as\cf5 \cb6 \
+`\
+image me\
+`\
+\cf4 \cb1 , except adds a few parameters to try to return an animated GIF instead.\
+slothbot bad <bad thing> - Add something bad that happened this sprint\
+slothbot baddel - Delete all bad things that happened\
+slothbot badlist - List all bad things that happened\
+slothbot cap <url> - Get a web screen of the url\
+slothbot convert me <expression> to <units> - Convert expression to given units.\
+slothbot days till <event name> -- returns the # of days till the event\
+slothbot days till add <event name> on <mm/dd/yyyy> - sets an event\
+slothbot days till list - show all events and dates recorded\
+slothbot days till remove <event name> - removes event\
+slothbot die - End slothbot process\
+slothbot echo <text> - Reply back with <text>\
+slothbot elasticsearch|es me - sets an alias for the command\
+slothbot end vote\
+slothbot fake event <event> - Triggers the <event> event for debugging reasons\
+slothbot good <good thing> - Add something good that happened this sprint\
+slothbot gooddel - Delete all good things that happened\
+slothbot goodlist - List all good things that happened\
+slothbot help - Displays all of the help commands that slothbot knows about.\
+slothbot help <query> - Displays all help commands that match <query>.\
+slothbot image me <query> - The Original. Queries Google Images for <query> and returns a random top result.\
+slothbot map me <query> - Returns a map view of the area returned by\cf5 \cb6 \
+`\
+query\
+`\
+\cf4 \cb1 .\
+slothbot math me <expression> - Calculate the given expression.\
+slothbot mustache me <query> - Searches Google Images for the specified query and mustaches it.\
+slothbot mustache me <url> - Adds a mustache to the specified URL.\
+slothbot ping - Reply with pong\
+slothbot pug bomb N - get N pugs\
+slothbot pug me - Receive a pug\
+slothbot show choices\
+slothbot show storage - Display the contents that are persisted in the brain\
+slothbot show users - Display all users that slothbot knows about\
+slothbot show votes - shows current votes\
+slothbot start vote item1, item2, item3, ...\
+slothbot the rules - Make sure slothbot still knows the rules.\
+slothbot time - Reply with current time\
+slothbot time in <city> - Get current time in city\
+slothbot translate me <phrase> - Searches for a translation for the <phrase> and then prints that bad boy out.\
+slothbot translate me from <source> into <target> <phrase> - Translates <phrase> from <source> into <target>. Both <source> and <target> are optional\
+slothbot vote for N - where N is the choice number or the choice name\
+slothbot what role does <user> have - Find out what roles are assigned to a specific user\
+slothbot who has admin role - Find out who's an admin and can assign roles\
+slothbot who is <user> - see what roles a user has\
+slothbot youtube me <query> - Searches YouTube for the query and returns the video embed link.\
+ship it - Display a motivation squirrel\
+sloth me - Sends a sloth image URL\
+\
+4/25\
+Shop phone mtg\
+Download page week away from production\cf0 \
+	Book download file formats:\
+		pdf\
+		2\
+		3\
+	Groupon deal going out soon\
+	Campaign landing pages\
+	Search response\
+		doesn\'92t return e-books\
+	Home page redesign\
+		Use cards like landing pages, etc\
+		Keep geographic nav\
+	Add to cart stuff?\
+	Print edition bundles\
+	Git rid of book only option \'97 get a free digi version \
+	Which guide is right for me \'97 badly hidden, needs updating\
+	Can\'92t do foreign language guides for now\
+	What is a PSP? Payment service provider\
+	Netsuite\
+\
+%select(class= "input--regular--dark input--text" id= "currency" name= "currency-input")\
+\
+4/28\
+shepright8007bemmerel95\
+\
+sheprightBemmerel95\
+\
+Flights landing page:\
+Searches are functional!\
+Widget now autocompletes on city search inputs and autoselects currency based on country.\
+Fixed bug: selected currency was not showing up in select form field\
+Used Ben\'92s autocomplete onItem function to create a data-id for the selected city that contains the airport code. I filled in a hidden form element with that data-id.\
+Fixed bug with my date formatter function. Needed to check for length of the date before slicing it up, to see if it was a single digit day. If so, add a 0 in front so the slicing of the date worked on the proper index.\
+\
+Questions\
+Style drop down results?\
+Can\'92t arrow down to autocomplete choice?\
+Refactor JS to be cleaner?\
+If user wants to do new search; back button only choice?\
+If back button used, flights page loads with article cards displayed incorrectly (stacked/block instead of inline/horiz.). Reloading the page fixes it.\
+Make white label header responsive?\
+Whitelabel page:\cf7  Uncaught SyntaxError: Unexpected token <  \cf8 \ul \ulc8 sign_in:1\
+\pard\pardeftab720
+\cf0 \ulnone Countries appear in the autocomplete, but if selected those searches return 400 bad request error, with a blank page because their city-id is \'93-sky\'94. But we have to submit the city id (airport code) in order to do a search. Removed from search. Is this OK?\
+Basket icon bug: between 980 and 990 px wide background goes black\
+\
+4/30\
+http://partners.api.skyscanner.net/apiservices/xd/autosuggest/v1.0/US/USD/en-GB?query=" + searchTerm + "&apikey=lp994363056324023341132625613270\
+\
+Insurance migration review:\
+Same basket icon issue as flights, right before the media query, background turns black\
+form validation blows up the page.\
+\
+<colon>thumbsup on slack or github pull request to make the icon appear\
+\
+jenkins\
+joeshep\
+ramones no/s\
+Build with parameters\
+\
+5/1\
+before build, make sure js files are all in require.yml, like this:\
+- :name: \'91flights\'92\
+\
+command P to open search for docs in Sublime\
+\
+5/5\
+fixed IE8 issues with landing pages flights widget:\
+-Placeholder doesn\'92t work in IE8, so used labels with Rizzo\'92s polyfill\'97placeholder class. It doesn\'92t actually work the way I think it should, but it does hide the label in Chrome, which is something I needed.\
+-The filtering of redundant currency codes using jQuery\'92s .unique() isn\'92t supported in IE8, so I used some code I found in SO that achieves the same result: (countries is the json object)\
+	var currencies = [];\
+  	for(var i = 0; i < countries.length; i++)\{\
+    		if(currencies.indexOf(countries[i].Currency) === -1 && countries[i].Currency !== '')\{\
+     		 currencies.push(countries[i].Currency);\
+    		\}\
+  	\}\
+-Split up the widget stylesheets into common. modern, and IE. Modern and IE import common.\
+\
+Discovered that the Skyscanner white label page for our flights search doesn\'92t work in IE8. I contacted the support guys at SS in Scotland to let them know we needed that to be fixed.\
+\
+5/6\
+Finally got the form validation working across modern and IE8 browsers.\
+Botched a merge into the staging branch. Had to get JB to dig me out. Created all kinds of conflicts somehow. Also, should NOT merge staging into local branch. Only vice versa. Conversation with SB about it:\
+\
+\pard\pardeftab720
+\cf4 well, by merging the staging branch into yours, it's now no longer safe to merge into master because everyone is merging their own branches into it. \'a0You should only be merging the master branch into your work branches.\
+\
+\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/steve.brownlee"}}{\fldrslt \cf4 steve.brownlee}}\
+\
+[8:50 AM]\
+once you're ready for testing, you merge your branch into staging\
+\
+\
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/steve.brownlee"}}{\fldrslt steve.brownlee}}\
+\
+[8:51 AM]\
+I know I just said merge 15 times, but hopefully that makes sense\
+\
+Not really. Sorry. My disconnect is how merging flights-edits into staging is different from merging staging into flights-edits\
+\
+\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/joeshep"}}{\fldrslt \cf4 joeshep}}\
+\
+[8:52 AM]\
+before pushing flights-edits back into the remote staging\
+\
+\
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/joeshep"}}{\fldrslt joeshep}}\
+\
+[8:53 AM]\
+I wanted to deal with any conflicts locally. Guess that was a bad line of thinking\
+\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/steve.brownlee"}}{\fldrslt \cf4 steve.brownlee}}\
+If you merge your flights > staging, then the staging branch now has all your edits and your branch still only contains the work you did. \'a0If you merge staging > flights, your branch now contains ALL the code that people have been putting into the staging branch (weather, cars, hotels, anything else...). \'a0So now, with all that "dirty" code now in your flights branch, it can't be merged into master for release.\
+\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/joeshep"}}{\fldrslt \cf4 joeshep}}\
+Ah. I thought staging was being merged into master, and our branches went into staging first, so our individual branches never went directly into staging\cf0 \
+\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/steve.brownlee"}}{\fldrslt \cf4 steve.brownlee}}\cf4 \
+\
+[\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/archives/D028SP0BL/p1399471000000014"}}{\fldrslt \cf9 8:56 AM}}\
+]\
+No, staging is never merged into master. \'a0It is a testing-only branch\
+\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/joeshep"}}{\fldrslt \cf4 joeshep}}\
+Ding Ding. There\'92s the root of my confusion. I thought we perfected everything in staging before sending it on to master. But I get it now that I think about it. Staging can never be \'91perfect\'92 because it\'92s where we are all sending the code we want to test in a pseudo-live environment\
+\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://lonelyplanet.slack.com/team/steve.brownlee"}}{\fldrslt \cf4 steve.brownlee}}\
+In fact,if you haven't committed anything else since the merge, you should be able to right click the last commit in Sourcetree and choose the "Reverse commit..." options\
+\
+==\
+JB showed me git reflog, which is a more detailed display of the commit history.\
+Then:\
+-I checked out the particular commit sha that happened right before I merged staging into it.\
+-checkout out js-flights-edits\
+-created js-flights-edits-backup\
+-ran git reset \'97hard <SHA> to reset flights edits back to that commit\
+-tried git push to make sure I was pushing to the correct branch (not remote master!!!)\
+-watched it fail (which is good in this case)\
+-pushed the local, reset branch to remote flights-edits with git push \'97force origin js-flights-edits\
+\
+Whew. Nervewracking\
+\
+5/8\
+Landing pages had an issue with the slider staying in its current position when the page was sized larger, which looked weird. So I wrote a window.resize function that turns off the css transform, setting the div back to its original place. Used the debounce utility in Rizzo to keep the function from firing constantly.\
+This taught me two things: \
+1) How to require something from Rizzo. in this case it was  'lib/utils/debounce'], function(debounce)\{\'85\
+Some utils need you to create a new instance, but debounce doesn\'92t.\
+2) How to break a function out as a helper for all the js files to use. I moved the resetSlider function into its own file in the lib directory and set it up with this first line: define(['jquery', 'lib/utils/debounce'], function($, debounce)\{,\
+and then required it in the js file of the page(s) that need it with 'lib/slider_reset\'92. \
+\
+Hint: Make sure main css files have .css.sass extensions. Just .css might mess things up. \
+\
+5/12\
+'lib/slider_reset'\
+slider_reset\
+\
+slider_reset.js\
+\
+define(['jquery', 'lib/utils/debounce'], function($, debounce)\{\
+  var resetSlider = function() \{\
+    $('.slider-js').css(\{\
+        "-moz-transform": "none !important",\
+        "-webkit-transform": "none !important",\
+        "-o-transform": "none !important",\
+        "transform": "none !important",\
+      \});\
+  \};\
+\
+  var delaySliderReset = debounce(resetSlider, 150);\
+\
+  $(window).resize(delaySliderReset);\
+\
+\});\
+\
+5/13\
+Landing pages todo before launch\
+	Flights: temp dummy page to test AJAX call to response header \
+	\
+After launch\
+	Flights: white label IE8\
+	Flights: white label responsive header\
+\
+5/19\
+\
+New file structure for landing pages styles:\
+example:\
+car-rental.html.haml\
+	- content_for(:async_js) \{"car-rental/car-rental"\} (rizzo has smart stylesheet functionality to pull in regular or i.e. 		stylesheets)\
+stylesheets/car-rental/car-rental\
+	// ----------------------------------------------------------------------------\
+	// Shared/common Sass\
+	// ----------------------------------------------------------------------------\
+	@import 'shared/_bookings_modern'\
+\
+\
+	// ----------------------------------------------------------------------------\
+	// Page Specific Sass\
+	// ----------------------------------------------------------------------------	\
+	@import 'partials/car-rental/modern'\
+	@import 'partials/car-rental/widget/_car-rental-widget-modern'\
+\
+shared/bookings (for now, only imports common):\
+	@import '_bookings_common'	\
+\
+====\
+\
+This ended up in my flights-cleanup project:\
+assets/javascripts/car-rental.js\
+\
+ require(['app_core', 'lib/analytics/analytics'], function (core, Analytics) \{\
+  require(['car-rental/car-rental-block', 'car-rental/deals-loader', 'lib/travel_tips', 'jquery_ujs', 'bxslider', 'lib/slider_reset'],\
+  function (CarApp, deals, validation, tips, ujs, slider, slider_reset) \{\
+\
+  /*\
+   *************************************************\
+   Omniture tracking code (start)\
+   *************************************************\
+  */\
+    var analytics = new Analytics();\
+    analytics.trackView();\
+\
+    //Set up Omniture event handlers\
+    $('.js-get-quote').on('click', function (e) \{\
+      var s = s_gi('lonelyplanet-global');\
+      window.s.linkTrackVars='eVar32,events';\
+      window.s.linkTrackEvents='event75';\
+      window.s.eVar32='linkName';\
+      window.s.events='event75';\
+      window.s.tl(this, 'o', 'linkName', null);\
+    \});\
+  /*\
+   *************************************************\
+   Omniture tracking code (end)\
+   *************************************************\
+  */\
+\
+    var carApp = new CarApp();\
+\
+    $('.responsive--slider').bxSlider(\{\
+      infiniteLoop: false,\
+      controls: true,\
+      minSlides: 1,\
+      maxSlides: 3,\
+      slideWidth: 1200,\
+      slideMargin: 3,\
+      nextSelector: '#next',\
+      nextText: 'Next',\
+      prevSelector: '#prev',\
+      prevText: 'Previous',\
+      touchEnabled: true\
+    \});\
+\
+    $('.bx-next').addClass('slider__control slider__control--next icon--chevron-right--before icon--white--before');\
+    $('.bx-prev').addClass('slider__control slider__control--prev icon--chevron-left--after icon--white--after');\
+\
+    $('.article--row').mouseenter(function () \{\
+      browser = $(window).width();\
+      if (browser <= 1024) \{\
+        $('.slider__control').css('display', 'inline-block')\
+      \}\
+    \});\
+\
+    $('.article--row').mouseleave(function () \{\
+        $('.slider__control').css('display', 'none');\
+    \});\
+\
+  \});\
+\});\
+\
+5/21 two separate html insurance pages. Set up an experiment with Vanity to serve the two \
+5/23\
+define( function() \{\
+    window.lp.ads = \{\
+      layers: ["2009.lonelyplanet"]\
+    \};\
+  \});\
+\
+5/27\
+mongod\
+\
+5/28\
+Added a way to hide the ads \'91leaderboard\'92 on landing pages by checking if a hash exists, then checking for the value after \'91=\'91. If that value is \'93hideads\'94, I add the is-hidden class from Rizzo. \
+if(location.hash)\{\
+    var urlHash = location.hash.split('=');\
+    if (urlHash.length && urlHash[0] === '#devflags' && urlHash[1] === 'hideads') \{\
+      $('.row--leaderboard').addClass('is-hidden');\
+    \}\
+  \}\
+The hash to add is #devflags=hideads\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 \
+.styleguide-block__item--2\
+  .field\
+    width: 295px\
+    .field__content\
+      width: 100% !important\
+\
+.field__content\
+  float: left\
+  width: 65%\
+\
+6/9/14\
+Found a bug in Rizzo\'92s drop down select menus that was selecting all the values on page load. \
+The error was in this logic:\
+\
+- properties[:options].each do |option|\
+%option\{value: option[:value] || option[:title], selected: (properties[:selected] == option[:value] || properties[:selected] == option[:title]) ? 'selected' : false\}<\
+        = option[:title]\
+\
+If \'91selected\'92 was not added to the properties of the drop down data in forms_stubs.yml, then \'91selected had no value and if the drop down options had either no \'91value\'92 or \'91title\'92, that also had no value. This was true for every option, therefore every option was given the attribute of \'91selected\'92.\
+\
+Adding selected property with an empty string to every field fixed the issue.\
+But to make it work retroactively on already published drop down, I needed to change the haml file itself to update the logic\
+\
+6/11/14\
+Idea:\
+Travel diary. Users can use LP branded templates to upload pics and vids and diary entries using a mobile app. Then they can share the finished product with a single link posted on their FB pages and other social media.\
+\
+ 6/13/14\
+
+\b Hotels results page \
+
+\b0 \
+\
+app/views/lodgings/show.html line 21 looks to be where the widget would go\
+\
+/show pulls from :\
+	lodgings/partials/rooms/rooms_booking_process\
+	\
+LodgingsPresenter (app/presenters/lodgings_presenter.rb) is a Class that has attr_reader of :lodging\
+\
+need country code and page name\
+\
+for iframe reviews \'91hrwt\'92 = ? hotel review widget type?\
+\
+\
+6/17/14\
+Met w/Steve about my goals and what I want to learn. I am going to start researching Node and getting some small example up and running. He mentioned \'93docker\'94 as something to use at some point with Node. Look into that! We will try to meet every 30 days or so to do informal performance reviews. I mentioned that I would welcome longer code reviews to get refactoring tips. \
+\
+Installing Waldorf locally\
+\
+run foreman start first \
+\pard\pardeftab720
+\cf4 ****	Move bundle install instruction to top of Populate ElasticSearch section***\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 	Install ES\
+		Got message that it was already installed:\
+			Error: elasticsearch-0.90.10-boxen1 already installed\
+			To install this version, first `brew unlink elasticsearch'\
+		so I skipped this step.\
+	Tried Sownload lasted backup from S3 \
+		1. Got error: -bash: elasticsearch.current.backup: command not found (need to make it clear that this is not a cli command?)\
+		2. Don\'92t understand this. Syntax of instruction is confusing. \
+		3. \
+	tmp directory is created upon foreman start command (if its not there already).\
+\
+Make sure indices directory is in the node folder\
+\
+\
+stop and restart foreman. Wait for it to finish its business.\
+bundle exec unicorn\
+\
+6/18/14
+\f1\fs30 \
+\pard\pardeftab720
+\cf4 \
+WALDORF exploration/hotels\
+We have found two calls to \'91real time\'92 data, getHotelAvailability and getBlockAvailability, but neither contains the data we need \
+to create the URL we need. It\'92s getHotels that has the page name (hotel name), and the review information. But Waldorf is accessing the hotel name, photos, etc somehow. So, when is this info being called and where is Waldorf getting it?\
+\
+\
+\pard\pardeftab720
+
+\f0\fs28 \cf4 6/19/14\
+\pard\pardeftab720
+
+\b \cf4 Building our own widget:
+\b0 \
+boooking.com\'92s widget specs:\
+	overall: 130 x 109px\
+	\'91blue\'92 area: 130 x 71px\
+	number font size: 48px
+\f2\fs20 \cf0 	\uc0\u8232 
+\fs22 \cf10 	
+\f0\fs28 \cf4 number shadow:
+\f2\fs22 \cf10  text-shadow\cf11 : 0 -1px 0 rgba(0,0,0,0.2)!important;\
+\pard\pardeftab720
+
+\f0\fs28 \cf4 	number font: 
+\f2\fs22 \cf10 font-family\cf11 : "Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,sans-serif!important;
+\f0\fs28 \cf4 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 	 \'91verified reviews\'92: \
+		
+\f2\fs22 \cf10 \ul \ulc10 font-size\cf11 \ulnone : 11px!important;\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440
+\ls1\ilvl1
+\fs20 \cf0 	 
+\fs22 \cf10 line-height\cf11 : 1!important;\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs28 \cf4 		
+\f2\fs22 \cf10 color\cf11 : #666!important;\
+		\cf10 \ul display\cf11 \ulnone : block!important;\
+        \cf10 zoom\cf11 : 1;\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440
+\ls2\ilvl1
+\fs20 \cf0 	
+\fs22 \cf10 text-align\cf11 : center;\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs28 \cf4 \
+Hostelworld API\
+\pard\pardeftab720
+
+\f3\fs24 \cf12 \cb13 $ cat .env | grep -i hostel\
+HOSTELWORLD_URI={\field{\*\fldinst{HYPERLINK "https://affiliate.xsapi.webresint.com/1.1/"}}{\fldrslt \cf2 https://affiliate.xsapi.webresint.com/1.1/}}\
+HOSTELWORLD_SIGNATURE=2200c5620e52ca46f45af2d32aeff76f1a39db4f\
+HOSTELWORLD_CONSUMER_KEY={\field{\*\fldinst{HYPERLINK "http://lonelyplanet.com/"}}{\fldrslt \cf2 lonelyplanet.com}}\cf2 \
+https://affiliate.xsapi.webresint.com/1.1/propertyreviews.json?consumer_key=lonelyplanet&consumer_signature=2200c5620e52ca46f45af2d32aeff76f1a39db4f&PropertyNumber=109\
+\
+\cf0 6/20/14\
+.env file has the API keys for hostel world, bookings, etc. Those can be set and saved in the master branch. Then .env can be added to .gitignore and in dev we can monkey with those settings without fear of them changing in production. \
+\
+================================\
+\pard\pardeftab720
+\cf5 \cb6 \
+\cf0 Note from Ian re: rizzo and controller for fetching data without a direct API call:\
+\
+\'93
+\f1\fs30 \cf4 \cb1 None of our apps or components make ajax calls directly to the server they all publish events saying they want something and the controller picks that up and fetches it. When it gets a response it can evaluate it and if it\'92s a successful call then it will publish another event which components can subcribe to. The controller is here: {\field{\*\fldinst{HYPERLINK "https://github.com/lonelyplanet/rizzo/blob/master/app/assets/javascripts/lib/page/controller.js.coffee"}}{\fldrslt \cf2 https://github.com/lonelyplanet/rizzo/blob/master/app/assets/javascripts/lib/page/controller.js.coffee}}\
+\pard\pardeftab720
+
+\i\fs24 \cf4 \
+\pard\pardeftab720
+
+\i0\fs30 \cf4 As an example, if you want to rerender the main content part of the page when a button is pressed that button would have an event listener which publishes an event like:
+\f3\fs24 \cf5 \cb6 \
+`\
+$this.trigger(\'91:page/request\'92, \{data\})\
+`\
+
+\f1\fs30 \cf4 \cb1 where data can be anything but usually includes a slug or a set of search/filter values.\
+\pard\pardeftab720
+
+\i\fs24 \cf4 \
+\pard\pardeftab720
+
+\i0\fs30 \cf4 The controller would go fetch that data and then publish the data back to the app like so that any component can listen to
+\f3\fs24 \cf5 \cb6 \
+`\
+$this.on(\'91:page/received\'92, function (e, data) \{ // do something with the data \});\
+`\
+\pard\pardeftab720
+
+\f1\i \cf4 \cb1 \
+\pard\pardeftab720
+
+\i0\fs30 \cf4 The benefit of this approach is that the components only ever have to care about their own simple functionality and they can all listen to the same event. So for example the pushstate component can update the url, the meta component can update the page title and meta values, and the layer/lightbox/stack can render the data to the page. It also means that you don\'92t have to worry about any of this stuff, it abstracts away things like the back button management so you don\'92t have to worry about it.\
+\pard\pardeftab720
+
+\i\fs24 \cf4 \
+\pard\pardeftab720
+
+\i0\fs30 \cf4 Hopefully that isn\'92t even more confusing. But that\'92s how you would be able to implement something with the lightbox. We should mock up the process of doing exactly that and add it to the style guide.\'94\
+\
+=======================================\
+\pard\pardeftab720
+
+\f3\fs24 \cf0 \cb13 \
+Started node.js tutorial stuff:\
+	
+\f4\fs26 \cb1 Make sure that /usr/local/bin is in your $PATH.\
++++++
+\f3\fs24 \cb13 \
+gemfile for landingpages rizzo:\
+git: 'git@github.com:lonelyplanet/rizzo.git'\
++++++++\
+\
+To access rizzo locally:\
+  -Replace rizzo gem path (git: 'git@github.com:lonelyplanet/rizzo.git\'92) with :path => "../rizzo"\
+  -If editing rizzo actively and it\'92s running also, run your project with bundle exec unicorn -p <port#>\
+\
+Rizzo:\
+pull request -\
+\pard\pardeftab720
+
+\f1\fs28 \cf0 \cb1 git fetch origin && git rebase origin/master && git push origin js-dropdown-bugfixes -f\
+\
+======\
+6/24\
+Spent most of the day trying in rizzo to figure out why the icons wouldn\'92t appear when adding the symbol card to landing pages. Finally dug up 'icons/destination/icons' and its included parts, which were not being imported into core. Turns out that was on purpose, and I needed to import @import 'icons/destination/icons' directly into the bookings css page. Apparently, this is the case with some ui components. That\'92s fine. Has to do with not spreading uneccessary styles all over the site. But damn, some documentation that explains which components are \'93self contained\'94 and which need to have certain styles imported into your app would have saved me hours of useless work. Result? We\'92re going to start adding documentation to rizzo components that saves future devs from my fate. Hooray.\
+\
+=====\
+What I cut out of landing pages -destination_card.haml\
+  / .tile__media.tile__media--img\
+  /   %img.card__image\{:src => asset_path(image)\}/\
+  / .tile__cover__content.destination-card--inner\
+  /   %p.tile__title.destination-name #\{destination\}\
+\
+======\
+Alan Laidlaw: Met at UX meet up. Just started @ NC2\
+\
+6/26/14\
+Implementing the new symbol cards was painless until I had to make them responsive. Then I had a very hard time making the grid-flex__cell, which contained the new card, stay \'92square\'92. The cards wouldn\'92t expand to keep the div at a 1:1 ratio. I had seen a CSS setting of padding-bottom: 100% on a div in the old destination cards, but didn\'92t get what it was until I found a discussion on SO about making a div height the same as its width. There I was able to grasp what that weird setting could do. With some tinkering I was able to make it work on the new structure of the symbol cards. Yay.\
+\
+\
+Line 77 base.sass\
+    .card--symbol\
+      margin: 0 !important\
+      width: 100% !important\
+      height: 0\
+      padding-bottom: 100%\
+    .link--wrapper\
+      position: absolute\
+      width: 100%\
+      height: 100%\
+      .card__hero\
+        height: 100%\
+\
+Remove 117 - 127 responsive.sass\
+\
+7/1/14\
+If big changes to code, run these before a build to check for issues:\
+bundle exec rake assets:precompile\
+grunt jshint\
+grunt jscs\
+\
+booking.com mobile vs desktop\
+$(window).width() < 600 ? 375096 : 381182\
+aid: if $(window).width() < 600 then "mobile" else "desktop"\
+\
+in lodgings_controller.rb, commented out two lines to keep 500 error from happening on the rooms search. \
+\
+line 126  \
+	def available_rooms(av_query)\
+    	@av_rooms_query     = AvailableRoomsQuery.for(av_query)\
+   	 # @availability_cache = Availability::ListCache.new(av_query)\
+\
+    	# log_and_update_if_cache_not_up_to_date\
+\
+    	@av_rooms_query\
+       end\
+\
+Need to pass in aid or aid variable through form so url.rb can build it. Find the form collection/parsing code!\
+_room_types.haml contains li with data attributes where I need to insert the affiliate ID #s\
+What is the \'93room\'94 variable in this file???\
+_availability_form.js contains the form that loads on the show page before the API takes over and loads results\
+url.rb delete def fetch_aid and def aid_param?\
+}

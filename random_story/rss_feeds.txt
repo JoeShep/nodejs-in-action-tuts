@@ -1,0 +1,4 @@
+http://www.npr.org/rss/rss.php?id=1001
+http://news.nationalgeographic.com/index.rss
+http://i.rottentomatoes.com/syndication/rss/top_news.xml
+http://rss.slashdot.org/Slashdot/slashdotDevelopers
